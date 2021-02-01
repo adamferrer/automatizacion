@@ -3,11 +3,11 @@ package com.qualitystream.tutorial;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.KeyInput;
 //PAQUETES
 
 public class FormularioAutomatico {
@@ -24,7 +24,7 @@ public class FormularioAutomatico {
         driver= new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.get("https://infallible-hodgkin-e9fc14.netlify.app/");
+        driver.get("https://serene-kirch-6aa923.netlify.app/");
         Thread.sleep(2000);
     }
 
@@ -34,34 +34,63 @@ public class FormularioAutomatico {
 
         WebElement campoNombre = driver.findElement(By.id("nombres"));
         campoNombre.clear();
-        campoNombre.sendKeys("Adam Abel");
+        campoNombre.sendKeys("Loner");
         campoNombre.sendKeys(Keys.ENTER);
         System.out.println("Nombre colocado correctamente");
 
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         WebElement campoApellido = driver.findElement(By.id("apellidos"));
         campoApellido.clear();
-        campoApellido.sendKeys("Ferrer Belisario");
+        campoApellido.sendKeys("Stay Will");
         campoApellido.sendKeys(Keys.ENTER);
         System.out.println("Apellido colocado correctamente");
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         WebElement campoCorreo = driver.findElement(By.id("correo"));
         campoCorreo.clear();
-        campoCorreo.sendKeys("nvidia@hotmail.com");
+        campoCorreo.sendKeys("noSurprises@hotmail.com");
         campoCorreo.sendKeys(Keys.ENTER);
         System.out.println("Correo colocado correctamente");
+
+        Thread.sleep(1000);
+        WebElement campoPass = driver.findElement(By.id("clave"));
+        campoPass.clear();
+        campoPass.sendKeys("cl366a");
+        campoPass.sendKeys(Keys.ENTER);
+        System.out.println("Clave colocada correctamente");
         Thread.sleep(3000);
 
+        WebElement campoRes = driver.findElement(By.id("reset"));
+        campoRes.sendKeys(Keys.ENTER);
+        System.out.println("correcto");
+        Thread.sleep(3000);
 
         System.out.println("Test Passed");
 
-        //Posible manejo de juego (Canvas)////////
-       // Actions clickAt = new Actions(d);
-      //  clickAt.moveToElement(d.findElement(By.xpath("your canvas id here")), 60, 30).click();
-      //  clickAt.moveToElement(d.findElement(By.xpath("your canvas id here")), 90, 30).click();
-      //  clickAt.build().perform();
+
+/*               !!!!!!!!POSIBLE AUTOMATIZACION DE JUEGO!!!!!!!!!!
+
+        WebElement ele11=  driver.findElement(By.xpath("//*[@id=\"scene\"]"));
+           Point eleect = ele11.getLocation();
+
+
+        int xCoordinate = driver.findElement(By.xpath("/html/body/div[1]/canvas")).getLocation().getX();
+
+        int yCoordinate = driver.findElement(By.xpath("/html/body/div[1]/canvas")).getLocation().getY();
+        Thread.sleep(4000);
+        System.out.println(eleect);
+        System.out.println(xCoordinate);
+        System.out.println(yCoordinate);
+
+        Actions action= new Actions(driver);
+        action.moveToElement(ele11).contextClick(ele11).sendKeys(Keys.NUMPAD6).sendKeys(Keys.NUMPAD8).build().perform();
+
+        Thread.sleep(4000);
+
+        System.out.println("correcto 222");
+        */
+
     }
 
     @After
